@@ -1,5 +1,3 @@
--- new table bloat query
--- still needs work; is often off by +/- 20%
 WITH constants AS (
     -- define some constants for sizes of things
     -- for reference down the query and easy maintenance
@@ -134,7 +132,7 @@ FROM bloat_data
 -- in the bloat chart
 -- example below filters for tables which are either 50%
 -- bloated and more than 20mb in size, or more than 25%
--- bloated and more than 4GB in size
-WHERE ( pct_bloat >= 50 AND mb_bloat >= 10 )
+-- bloated and more than 1GB in size
+WHERE ( pct_bloat >= 50 AND mb_bloat >= 20 )
     OR ( pct_bloat >= 25 AND mb_bloat >= 1000 )
 ORDER BY pct_bloat DESC;
